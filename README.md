@@ -53,3 +53,16 @@ http://127.0.0.1:8000/
 Note: MySQL should be installed, and the database should be created. You can create the database using the following command:
 
 CREATE DATABASE user_registration_db;
+
+And also change user and password in databases in settings.py file of project 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'user_registration_db',
+        'USER': 'root',    
+        'PASSWORD': 'rekha',  //password of your mysql 
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
