@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>CRUD Project</title>
+</head>
+<body bgcolor="cyan">
+    <center>
+        <h2>CRUD Users List</h2>
+        <a href="{% url 'add_user' %}">
+            <button>Add User</button>
+        </a>
+
+        <br><br>
+
+        <table border="1" cellpadding="10">
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Email</th>
+               <th>DOB</th>
+               <th>Created Date</th>
+               <th>Updated Date</th>
+               <th>Actions</th>
+            </tr>
+            {% for i in reg %}
+            <tr>
+               <td>{{ i.id }}</td>
+               <td>{{ i.name }}</td>
+               <td>{{ i.email }}</td>
+               <td>{{ i.date_of_birth }}</td>
+               {% load tz %}
+
+               {% timezone "Asia/Kolkata" %}
+               <td>{{ i.created_at|date:"d M Y, h:i A" }}</td>
+               <td>{{ i.updated_at|date:"d M Y, h:i A" }}</td>
+               {% endtimezone %}
+
+               <td>
+                <a href="{% url 'update_user' i.id %}"><button>Update</button></a>
+                <a href="{% url 'delete_user' i.id %}"><button onclick="return confirm('Are you sure you want to delete this user?')">Delete</button></a>
+               </td>            
+            </tr>
+            {% endfor %}
+         </table>
+    </center>
+</body>
+</html>

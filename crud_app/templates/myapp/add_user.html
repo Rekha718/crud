@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>CRUD Project</title>
+</head>
+<body bgcolor="cyan">
+    <center>
+        <h1>Add New User</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add User</button>
+        </form>
+        <br>
+    </center> 
+</body>
+</html>
